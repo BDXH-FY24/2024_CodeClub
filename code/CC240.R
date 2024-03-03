@@ -15,7 +15,9 @@ snow_data <- local_weather %>%
                              cal_year)
          ) %>%
   select(month, snow_year, snow) %>% 
-  filter(snow_year!= 1891 &  snow_year!= 2022)
+  dplyr::filter(snow_year!= 1891 &  snow_year!= 2022) %>% 
+  mutate(snow_year = factor(snow_year, levels = 1892:2021),
+         month = factor(month, levels = c(8:12, 1:7))) 
 
   
 snow_data %>% 
@@ -32,20 +34,20 @@ total_snow <- snow_data %>%
   pull(total_snow)
 
 
-dummy_df <- crossing(snow_year = 1892: 2021,
-                     month = 1:12) %>% 
-  mutate(dummy = 0)
+# dummy_df <- crossing(snow_year = 1892: 2021,
+#                      month = 1:12) %>% 
+#   mutate(dummy = 0)
 
 
 
 snow_data %>% 
-  right_join(., dummy_df, by = c("snow_year", "month")) %>% 
-  mutate(snow_dummy = if_else(is.na(snow), dummy, snow)) %>% 
-  group_by(snow_year,month) %>% 
+  # right_join(., dummy_df, by = c("snow_year", "month")) %>% 
+  # mutate(snow_dummy = if_else(is.na(snow), dummy, snow)) %>% 
+  
   summarize(snow = sum(snow), .groups = "drop") %>% 
   mutate(month = factor(month, 
                         levels = c(8:12, 1:7)),
-         is_this_year =   snow_year == 2021) %>% 
+         is_this_year =   snow_year == 2023) %>% 
   ggplot(aes(x = month, y = snow, group = snow_year, color =is_this_year))+
   geom_line(show.legend = F)+
   scale_color_manual(name = NULL,
