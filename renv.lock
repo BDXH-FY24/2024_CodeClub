@@ -271,16 +271,21 @@
     },
     "conflicted": {
       "Package": "conflicted",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.2.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "conflicted",
+      "RemoteUsername": "r-lib",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "4d759ac62d49ec77cb3d16db41e4c40ffa4cfa1e",
       "Requirements": [
         "R",
         "cli",
         "memoise",
         "rlang"
       ],
-      "Hash": "bb097fccb22d156624fd07cd2894ddb6"
+      "Hash": "4893989f5bdfc3d625ecde7da6df933b"
     },
     "cpp11": {
       "Package": "cpp11",
@@ -1293,6 +1298,20 @@
       ],
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
     },
+    "slider": {
+      "Package": "slider",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cli",
+        "rlang",
+        "vctrs",
+        "warp"
+      ],
+      "Hash": "a584625e2b9e4fad4be135c8ea5c99aa"
+    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.8.3",
@@ -1552,6 +1571,16 @@
         "withr"
       ],
       "Hash": "390f9315bc0025be03012054103d227c"
+    },
+    "warp": {
+      "Package": "warp",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "fea474d578b1cbcb696ae6ac8bdcc439"
     },
     "withr": {
       "Package": "withr",
