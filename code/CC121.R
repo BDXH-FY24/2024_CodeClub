@@ -3,6 +3,7 @@
 library(tidyverse)
 library(broom)
 library(ggtext)
+library(Hmisc)
 
 set.seed(121229)
 
@@ -38,7 +39,7 @@ metadata <- read_tsv("raw_data/raw_dataCC077_series/minimalR-raw_data-0.3/baxter
 
 composite <- inner_join(shared, taxonomy, by = "otu") %>% 
   group_by(group,taxonomy) %>% 
-  summarize(count = sum(count), .groups = "drop") %>% 
+  dplyr::summarize(count = sum(count), .groups = "drop") %>% 
   group_by(group) %>% 
   mutate(rel_abund = count / sum(count)) %>% 
   ungroup() %>%
